@@ -2,8 +2,6 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 // Var
 let draw = false;
-let lastX = 0;
-let lastY = 0;
 
 const colors = ['#D50000','#689F38', '#FBC02D'];
 let color = '#D50000';
