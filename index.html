@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>測試畫筆</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js" integrity="sha256-pVreZ67fRaATygHF6T+gQtF1NI700W9kzeAivu6au9U=" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js" integrity="sha256-CIc5A981wu9+q+hmFYYySmOvsA3IsoX+apaYlL0j6fg=" crossorigin="anonymous"></script> 
+<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container-fluid">
+  <div class="nav row justify-content-center align-items-center">
+	  <!-- 功能區 basic tools use -->
+    <div class="nav-box col-12 row justify-content-center align-items-center">
+      <div class="nav-save col col-md-3 col-lg-2">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-auto" style="padding: 0px 7px; font-size: 36px;"> <i class="fas fa-save"></i> </div>
+          <div class="w-100 d-block d-sm-none"></div>
+          <div class="col-auto d-none d-md-block" style="padding: 0px 7px;">儲存</div>
+        </div>
+      </div>
+      <div class="nav-clearAll col col-md-3 col-lg-2">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-auto" style="padding: 0px 7px; font-size: 36px;"> <i class="fas fa-trash"></i> </div>
+          <div class="col-auto d-none d-md-block" style="padding: 0px 7px;">清除</div>
+        </div>
+      </div>
+      <div class="nav-undo col col-md-2 col-lg-2 disable">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-auto" style="padding: 0px 7px; font-size: 36px;"> <i class="fas fa-undo-alt"></i> </div>
+          <div class="w-100 d-block d-sm-none"></div>
+          <div class="col-auto d-none d-md-block" style="padding: 0px 7px;">上一步</div>
+        </div>
+      </div>
+      <div class="nav-redo col col-md-2 col-lg-2 disable">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-auto" style="padding: 0px 7px; font-size: 36px;"> <i class="fas fa-redo-alt"></i> </div>
+          <div class="w-100 d-block d-sm-none"></div>
+          <div class="col-auto d-none d-md-block" style="padding: 0px 7px;">下一步</div>
+        </div>
+      </div>
+    </div>
+	  <!-- 畫筆工具區 basic tools use -->
+    <a class="btn-t t-open" name="button">∧</a> </div>
+  <div class="option row justify-content-center"> <a class="btn-b b-open" name="button">∨</a>
+    <div class="w-100 d-block"></div>
+    <div class="option-box col-auto row justify-content-center align-items-center pt-1 pb-1">
+      <div class="option-tools pen col-auto"> <i class="fas fa-pen"></i> <i class="fas fa-eraser d-none"></i> </div>
+      <div class="col-auto">粗細:</div>
+      <div class="option-size-box col-3 col-sm-1">
+        <input type="number" class="option-size" value="5"></input>
+      </div>
+      <div class="col-1">px</div>
+	  <!-- 畫筆盤 colors -->
+      <div class="col-2 d-none d-md-block text-right">顏色:</div>
+      <div class="w-100 d-block d-sm-none"></div>
+      <div class="option-colors col-10 col-sm-4"> </div>
+    </div>
+  </div>
+</div>
+<div id="question" class="justify-content-center align-items-center">「有個廚師，他的拿手好菜是烤鴨，不過老闆從來沒有給過廚師任何鼓勵，使得廚師整天悶悶不樂。有一天，老闆在家宴客，點了數道菜，其中一道是老闆最喜歡的烤鴨。然而，當老闆夾了一隻鴨腿給客人時，卻找不到另一隻鴨腿，他便問身後的廚師，廚師說：『老闆，我們家的鴨子都只有一條腿！』老闆感到詫異，跟著廚師到鴨籠去查個究竟。時值夜晚，鴨子正在睡覺，都只露出一條腿。廚師說：『你看，我們家的鴨子都只有一條腿。』老闆聽後，大聲拍掌，鴨子被驚醒，站了起來。老闆說：『這不全是兩條腿嗎？』廚師說：『對！不過只有鼓掌拍手，才會有兩條腿呀！』」根據這段文字，下列敘述何者正確？<br>
+  <br>
+  (A)老闆認為廚師耍詐，故意拆穿其謊言<br>
+  (B)廚師最後的話語，具諧音雙關的暗示<br>
+  (C)老闆對於廚師低劣的把戲，拍手大笑<br>
+  (D)廚師藉此暗示老闆要對員工多加鼓勵<br>
+  <br>
+  <p style="color: crimson">答案：D</p>
+  <p style="color: crimson">詳解：(A)老闆對廚師所言感到詫異(B)廚師最後的話語，具諧義雙關的暗示(C)老闆拍手是為了叫醒鴨子</p>
+</div>
+<canvas id="canvas" width="100%" height="100%">
+</canvas>
+<script src="./js/canvas.js" charset="utf-8"></script>
+</body>
+</html>
