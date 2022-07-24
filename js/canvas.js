@@ -94,7 +94,7 @@ const touchStart = (e) => {
   draw = true;
   let setColor = color;
   if (toolbar === 'eraser') {
-    setColor = 'transparent';
+    setColor = '#FFFFFF';
   }
   ctx.beginPath();
   ctx.strokeStyle = setColor;
